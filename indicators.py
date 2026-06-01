@@ -36,3 +36,12 @@ def calculate_ema(prices, period):
     rs = avg_gain / avg_loss
 
     return 100 - (100 / (1 + rs))
+
+def calculate_macd(prices):
+
+    ema12 = calculate_ema(prices, 12)
+    ema26 = calculate_ema(prices, 26)
+
+    macd = ema12 - ema26
+
+    return macd
