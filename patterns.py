@@ -26,3 +26,12 @@ def bullish_engulfing(candles):
         and curr["open"] < prev["close"]
         and curr["close"] > prev["open"]
     )
+def doji(candle):
+
+    body = abs(candle["close"] - candle["open"])
+    range_size = candle["high"] - candle["low"]
+
+    if range_size == 0:
+        return False
+
+    return body <= (range_size * 0.1)
