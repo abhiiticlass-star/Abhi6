@@ -35,3 +35,23 @@ def doji(candle):
         return False
 
     return body <= (range_size * 0.1)
+def hammer(candle):
+
+    body = abs(candle["close"] - candle["open"])
+
+    lower_shadow = min(
+        candle["open"],
+        candle["close"]
+    ) - candle["low"]
+
+    return lower_shadow > body * 2
+    def shooting_star(candle):
+
+    body = abs(candle["close"] - candle["open"])
+
+    upper_shadow = candle["high"] - max(
+        candle["open"],
+        candle["close"]
+    )
+
+    return upper_shadow > body * 2
